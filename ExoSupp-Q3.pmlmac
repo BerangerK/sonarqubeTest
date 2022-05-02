@@ -1,0 +1,14 @@
+-----Renommer les soudures-------
+BRAN
+!Member = member of ce
+
+Do !i index !Member
+
+	--On recherche les éléments de type WELD
+	IF(MATCHWILD(|$!Member[$!i].Type|, |WELD|)) THEN
+		!NewName = '/SA-' & !Member[$!i].tyseq
+		$!Member[$!i]
+		NAME $!NewName
+	ENDIF
+
+Enddo
